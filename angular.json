@@ -1,11 +1,11 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
-  "newProjectRoot": "projects",
+  "newProjectRoot": "./resources/AngularApplication/projects",
   "projects": {
     "ClientApp": {
-      "root": "./resources/AngularApplication",
-      "sourceRoot": "./resources/AngularApplication/src",
+      "root": "./resources/AngularApplication/",
+      "sourceRoot": "./resources/AngularApplication/src/",
       "projectType": "application",
       "prefix": "app",
       "schematics": {},
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "./public/dist",
+            "outputPath": "./public/dist/",
             "index": "./resources/AngularApplication/src/index.html",
             "main": "./resources/AngularApplication/src/main.ts",
             "polyfills": "./resources/AngularApplication/src/polyfills.ts",
@@ -108,14 +108,14 @@
       }
     },
     "ClientApp-e2e": {
-      "root": "resources/AngularApplication/e2e/",
+      "root": "./resources/AngularApplication/e2e/",
       "projectType": "application",
       "prefix": "",
       "architect": {
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
-            "protractorConfig": "resources/AngularApplication/e2e/protractor.conf.js",
+            "protractorConfig": "./resources/AngularApplication/e2e/protractor.conf.js",
             "devServerTarget": "ClientApp:serve"
           },
           "configurations": {
@@ -127,7 +127,7 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": "resources/AngularApplication/e2e/tsconfig.e2e.json",
+            "tsConfig": "./resources/AngularApplication/e2e/tsconfig.e2e.json",
             "exclude": [
               "**/node_modules/**"
             ]
