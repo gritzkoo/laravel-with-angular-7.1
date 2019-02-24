@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -13,10 +11,11 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
-Route::get('/gdk', function(){
-    return ['oi'=>'aki'];
-});
+/**
+ * on this project, all scopes are splited in many files in api folder
+ * so if any changes must be done, find in api folder de relative
+ * context and then change it
+ */
+foreach(glob(__DIR__.DIRECTORY_SEPARATOR.'api'.DIRECTORY_SEPARATOR.'*') as $file) {
+    include($file);
+}
