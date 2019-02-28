@@ -4,5 +4,17 @@
     "secure": false,
     "logLevel": "debug",
     "changeOrigin": true
+  },
+  "/oauth/*": {
+    "target": "http://localhost:802",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+  },
+  "/assets/*": {
+    "target": "http://localhost:802",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
   }
 }

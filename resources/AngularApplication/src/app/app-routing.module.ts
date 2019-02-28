@@ -6,7 +6,7 @@ import { PanelUsersComponent } from './Components/panel/panel-users/panel-users.
 import { SiteRootComponent } from './Components/site/site-root/site-root.component';
 import { SiteHomeComponent } from './Components/site/site-home/site-home.component';
 import { LoginComponent } from './Components/login/login.component';
-import { PanelGuardGuard } from './Guards/panel-guard.guard';
+import { PanelGuard } from './Guards/panel.guard';
 
 const routes: Routes = [
   // site route group
@@ -20,7 +20,7 @@ const routes: Routes = [
   // painel route group
   {
     path: 'painel',
-    canActivate: [PanelGuardGuard],
+    canActivate: [PanelGuard],
     component: PanelRootComponent,
     children: [
       { path: '', component: PanelHomeComponent},

@@ -3,7 +3,13 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  oauth_client: {
+    grant_type: 'password',
+    client_id: 2,
+    client_secret: 'cOr2SArHbkxnuIEWEx5EJxqbaJ51mFuBgiE70kNd',
+    scope: '*'
+  }
 };
 
 /*

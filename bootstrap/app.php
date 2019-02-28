@@ -14,6 +14,12 @@
 $app = new Illuminate\Foundation\Application(
     $_ENV['APP_BASE_PATH'] ?? dirname(__DIR__)
 );
+if (!function_exists('debug')) {
+    function debug($arg)
+    {
+        Log::debug(is_string($arg) ? $arg : var_export($arg, true));
+    }
+}
 
 /*
 |--------------------------------------------------------------------------

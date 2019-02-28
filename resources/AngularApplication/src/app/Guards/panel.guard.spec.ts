@@ -1,15 +1,15 @@
 import { TestBed, async, inject } from '@angular/core/testing';
 
-import { PanelGuardGuard } from './panel-guard.guard';
+import { PanelGuard } from './panel.guard';
 
 describe('PanelGuardGuard', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [PanelGuardGuard]
+      providers: [PanelGuard]
     });
   });
 
-  it('should ...', inject([PanelGuardGuard], (guard: PanelGuardGuard) => {
+  it('should ...', inject([PanelGuard], (guard: PanelGuard) => {
     expect(guard).toBeTruthy();
   }));
 });

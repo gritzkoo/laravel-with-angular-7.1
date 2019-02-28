@@ -1,5 +1,24 @@
-:host(body) {
+.container-login {
+  min-width: 100vw;
+  min-height: 100vh;
   background-color: black;
+  background-image: url('/assets/pandapix/img/view-poll-background.jpg');
   color: cadetblue;
   font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.bg-white {
+  background: #fff;
+  border-radius: 5px;
+  border: solid 3px #807d7d;
+  box-shadow: 1px 0px 20px black;
+  padding: 15px;
+}
+.center {
+  margin: auto;
+  position: relative;
+}
+
+.container-position {
+  padding-top: 30vh;
 }

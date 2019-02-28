@@ -1,0 +1,17 @@
+.loading-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100vw;
+  min-height: 100vh;
+  z-index: 2000;
+  background-color: rgba(100, 100, 100, .5);
+}
+
+
+.img-loading {
+  width: 25%;
+  position: relative;
+  top: 21vh;
+  left: 37vw;
+}

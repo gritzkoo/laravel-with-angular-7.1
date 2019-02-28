@@ -6,10 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./site-home.component.css']
 })
 export class SiteHomeComponent implements OnInit {
+  constructor(
 
-  constructor() { }
-
+  ) { }
   ngOnInit() {
+
   }
 
 }

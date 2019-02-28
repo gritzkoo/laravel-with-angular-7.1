@@ -1,11 +1,23 @@
-<div class="row text-center form-group">
-  <div class="col">
-    <label>Name:<input class="form-control" type="text"></label>
-  </div>
-  <div class="col">
-    <label>Pass:<input class="form-control" type="text"></label>
-  </div>
-  <div class="col">
-    <label><button class="btn btn-success">Send</button></label>
+<div class="container-fluid container-login">
+  <div class="row form-group container-position">
+    <div class="col"></div>
+    <div class="col-3  bg-white">
+      <div class="form-row">
+        <img src="/assets/pandapix/img/login-image.png" alt="login logo" class="center">
+      </div>
+      <div class="form-row mt-2">
+        <input type="text" [(ngModel)]="user.name" (keydown.enter)="makeLogin()" class="form-control" maxlength="50" placeholder="@email">
+      </div>
+      <div class="form-row mt-2">
+          <input type="password" [(ngModel)]="user.password" (keydown.enter)="makeLogin()" class="form-control" maxlength="16" placeholder="Senha">
+      </div>
+      <div class="form-row mt-2 float-right">
+        <button class="btn btn-info float-right" (click)="makeLogin()">Login</button>
+      </div>
+      <div class="form-row mt-2">
+        <label *ngFor="let message of messages.messages">{{message}}</label>
+      </div>
+    </div>
+    <div class="col"></div>
   </div>
 </div>

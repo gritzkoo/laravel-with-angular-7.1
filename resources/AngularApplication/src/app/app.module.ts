@@ -1,5 +1,6 @@
 // core
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import 'bootstrap';
@@ -18,7 +19,8 @@ import { SiteRootComponent } from './Components/site/site-root/site-root.compone
 import { SiteMenuComponent } from './Components/site/site-menu/site-menu.component';
 import { SiteHomeComponent } from './Components/site/site-home/site-home.component';
 import { LoginComponent } from './Components/login/login.component';
-import { PanelGuardGuard } from './Guards/panel-guard.guard';
+import { PanelGuard } from './Guards/panel.guard';
+import { LoadingComponent } from './Components/loading/loading.component';
 
 
 @NgModule({
@@ -31,12 +33,14 @@ import { PanelGuardGuard } from './Guards/panel-guard.guard';
     SiteRootComponent,
     SiteMenuComponent,
     SiteHomeComponent,
-    LoginComponent
+    LoginComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
 
   ],
   providers: [
@@ -45,7 +49,7 @@ import { PanelGuardGuard } from './Guards/panel-guard.guard';
       useClass: HttpAuthInterceptorService,
       multi: true
     },
-    PanelGuardGuard
+    PanelGuard
   ],
   bootstrap: [AppComponent]
 })
