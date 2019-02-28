@@ -1,32 +1,47 @@
 import { Injectable, Injector } from '@angular/core';
-import { HttpInterceptor, HttpRequest, HttpHandler, HttpErrorResponse } from '@angular/common/http';
+import { HttpInterceptor, HttpRequest, HttpHandler, HttpErrorResponse, HttpEvent, HttpResponse } from '@angular/common/http';
 import { CacheService } from './cache-service.service';
 import { catchError, tap, map } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 import { Router } from '@angular/router';
 import { MessagesService } from './messages.service';
 import { IOauthResponse } from '../Interfaces/repository-interfaces';
+import { LoaderService } from './loader.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HttpAuthInterceptorService implements HttpInterceptor {
 
-  constructor(private injector: Injector) { }
+  constructor(
+    private cache: CacheService,
+    private message: MessagesService,
+    private loader: LoaderService,
+    private router: Router,
+    private injector: Injector
+  ) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
-    const cache = this.injector.get(CacheService);
-    const message = this.injector.get(MessagesService);
-    const token: IOauthResponse = cache.get('token');
+    this.loader.show();
+    const token: IOauthResponse = this.cache.get('token');
     const authorized = req.clone({
       setHeaders: {
         Autorization: `${token.token_type} ${token.access_token}`,
         Accept: 'application/json'
       }
     });
-    message.loading = true;
     return next.handle(authorized).pipe(
       tap(_ => this.log(`requesting url: ${req.url}`)),
+      tap(
+        (event: HttpEvent<any>) => {
+          if (event instanceof HttpResponse) {
+            this.loader.hide();
+          }
+        },
+        (err: any) => {
+          this.loader.hide();
+        }
+      ),
       catchError(this.handleError<any>(`request error uri ${req.url}`))
     );
   }
@@ -54,13 +69,11 @@ export class HttpAuthInterceptorService implements HttpInterceptor {
         error: error,
         result: result
       }); // log to console instead
-      const message = this.injector.get(MessagesService);
-      message.add(error.error.message);
+      this.message.add(error.error.message);
       // TODO: better job of transforming error for user consumption
       this.log(`${operation} failed: ${error.message}`);
       if (error.status === 401) {
-        const router = this.injector.get(Router);
-        router.navigate(['login']);
+        this.router.navigate(['login']);
       }
       // Let the app keep running by returning an empty result.
       return of(result as T);

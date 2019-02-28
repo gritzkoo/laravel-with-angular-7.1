@@ -30,6 +30,12 @@ export interface IOauthLoggedUser {
   created_at: string;
   updated_at: string;
 }
+/**
+ * - simple loader state
+ */
+export interface ILoaderState {
+  show: boolean;
+}
 export class Users {
   id: number;
   name: string;

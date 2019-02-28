@@ -1,7 +1,5 @@
-<div *ngIf="messages.loading">
-  <div class="loading-container">
-    <img src="/assets/pandapix/img/giphy.gif" alt="app loading" title="loading" class="img-loading">
-    <!-- <div class="loading-center">
-    </div> -->
+<div [class.hidden]="!show">
+  <div class="loader-overlay">
+    <div *ngIf="show" class="loader"></div>
   </div>
 </div>

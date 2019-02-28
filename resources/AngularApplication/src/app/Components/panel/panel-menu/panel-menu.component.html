@@ -1,5 +1,55 @@
-<ul>
-  <li>
-    <a [routerLink]="['/']">Site</a>
-  </li>
-</ul>
+<nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse" id="navpanelko">
+  <button class="navbar-toggler navbar-toggler-right hidden-lg-up" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+    aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="#">
+    <img class="rounded-circle" src="assets/pandapix/img/panda-ico-fundo-branco.png" width="30" height="30"
+      alt="pandapix">
+    config('pandapix.cliente')
+  </a>
+
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item ">
+        <a class="nav-link" href="#"><span class="fas fa-home">&nbsp;</span>Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"><span class="fas fa-flag">&nbsp;</span>Idiomas</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"><span class="fas fa-palette">&nbsp;</span>Cores</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"><span class="far fa-images">&nbsp;</span>Imagens</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"><span class="fas fa-lightbulb">&nbsp;</span>Soluções</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"><span class="fas fa-file">&nbsp;</span>Telas</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"><span class="fas fa-basketball-ball">&nbsp;</span>Modalidades</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"><span class="fas fa-user-alt">&nbsp;</span>Atletas</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"><span class="fas fa-exchange-alt">&nbsp;</span>Sliders</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"><span class="fas fa-at">&nbsp;</span>E-mails</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"><span class="fas fa-envelope">&nbsp;</span>Teste de
+          E-mail</a>
+      </li>
+
+    </ul>
+    <ul class="navbar-nav">
+      <li class="nav-item"><a href="#" class="nav-link">Auth::user()->usu_nome </a></li>
+      <li class="nav-item"><a href="#" class="nav-link">Sair <span class="fas fa-sign-out-alt">&nbsp;</span></a></li>
+    </ul>
+  </div>
+</nav>

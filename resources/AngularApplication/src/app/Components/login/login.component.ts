@@ -2,12 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../../Services/login.service';
 import { AuthUser } from '../../Interfaces/auth-user.interface';
 import { CacheService } from '../../Services/cache-service.service';
-import { catchError } from 'rxjs/operators';
-import { HttpErrorResponse } from '@angular/common/http';
 import { IOauthResponse } from '../../Interfaces/repository-interfaces';
 import { MessagesService } from '../../Services/messages.service';
 import { Router } from '@angular/router';
-// import * as $ from 'jquery';
 
 @Component({
   selector: 'app-login',
@@ -28,6 +25,7 @@ export class LoginComponent implements OnInit {
   }
 
   makeLogin() {
+    this.messages.messages = [];
     this.login.apiLogin(this.user).subscribe(
       (resp: IOauthResponse) => {
         this.cache.set('token', resp);
@@ -35,9 +33,4 @@ export class LoginComponent implements OnInit {
       }
     );
   }
-
-  onkeyPress = (event: KeyboardEvent): void => {
-    console.log(event);
-  }
-
 }
