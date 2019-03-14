@@ -7,7 +7,7 @@ export const environment = {
   oauth_client: {
     grant_type: 'password',
     client_id: 2,
-    client_secret: 'cOr2SArHbkxnuIEWEx5EJxqbaJ51mFuBgiE70kNd',
+    client_secret: 'PLACE_THE_HASH_LARAVEL_PASSPORT_CLIENT_HERER',
     scope: '*'
   }
 };
